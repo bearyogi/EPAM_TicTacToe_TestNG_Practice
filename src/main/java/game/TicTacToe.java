@@ -27,24 +27,49 @@ public class TicTacToe {
 
             width = sc.nextInt();
             height = sc.nextInt();
-            humanPlayer.makeAMove(width,height,board);
+
+            while(!humanPlayer.makeAMove(width,height,board)){
+                width = sc.nextInt();
+                height = sc.nextInt();
+            }
 
             if(arbiter.analizeBoard(board).equals("Win")){
+                System.out.println(board.toString());
                 System.out.println(arbiter.announceWinner(arbiter.getWinner()));
                 System.out.println(humanPlayer.endGameSpeech(arbiter.getWinner()));
                 System.out.println(computerPlayer.endGameSpeech(arbiter.getWinner()));
                 break;
 
             }else if(arbiter.analizeBoard(board).equals("End")){
+                System.out.println(board.toString());
                 System.out.println(arbiter.announceDraw());
                 break;
             }
+
             System.out.println(arbiter.askForMove(computerPlayer));
             width = randGenerator.nextInt(3);
             height = randGenerator.nextInt(3);
-            computerPlayer.makeAMove(width,height,board);
+            while(!computerPlayer.makeAMove(width,height,board)){
+                width = randGenerator.nextInt(3);
+                height = randGenerator.nextInt(3);
+            }
+
             arbiter.analizeBoard(board);
+
+            if(arbiter.analizeBoard(board).equals("Win")){
+                System.out.println(board.toString());
+                System.out.println(arbiter.announceWinner(arbiter.getWinner()));
+                System.out.println(humanPlayer.endGameSpeech(arbiter.getWinner()));
+                System.out.println(computerPlayer.endGameSpeech(arbiter.getWinner()));
+                break;
+
+            }else if(arbiter.analizeBoard(board).equals("End")){
+                System.out.println(board.toString());
+                System.out.println(arbiter.announceDraw());
+                break;
+            }
+
         }
 
     }
-};
+}

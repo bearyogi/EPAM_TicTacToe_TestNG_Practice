@@ -30,6 +30,7 @@ public class Arbiter {
                 tiles+=boardTiles[width][height];
             }
         }
+
         if(tiles.contains(" ")){
             return "Continue";
         }

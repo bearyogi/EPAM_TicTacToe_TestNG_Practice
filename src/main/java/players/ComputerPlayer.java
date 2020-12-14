@@ -1,11 +1,13 @@
 package players;
 
 import game.Board;
+import lombok.Getter;
 import lombok.Setter;
 
 public class ComputerPlayer implements Player{
 
-    private @Setter char mark;
+    private @Getter
+    @Setter char mark;
 
 
     public boolean makeAMove(int width, int height, Board board) {
@@ -20,7 +22,7 @@ public class ComputerPlayer implements Player{
         if(mark == this.mark)
             return getClass().getSimpleName() + ": Bip Bop! My victory was inevitable!";
         else
-            return getClass().getSimpleName() + ": Bip Bop! How some monkey could beat me!";
+            return getClass().getSimpleName() + ": Bip Bop! How could some monkey beat me!";
     }
 
 }

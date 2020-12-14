@@ -12,9 +12,6 @@ public class Board {
             Arrays.fill(row,' ');
     }
 
-    public void placeXO(char playerMark, int boardHeight, int boardWidth){
-        boardTTT[boardHeight][boardWidth] = playerMark;
-    }
     @Override
     public String toString(){
         return "|---|---|---|" + "\r\n"
