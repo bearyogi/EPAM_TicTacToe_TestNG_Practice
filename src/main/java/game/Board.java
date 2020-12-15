@@ -22,4 +22,5 @@ public class Board {
         + "| " + boardTTT[2][0] + " | " + boardTTT[2][1] + " | " + boardTTT[2][2] + " |"+ "\r\n"
         + "|---|---|---|";
     }
+
 }

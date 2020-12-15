@@ -17,26 +17,20 @@ public class Arbiter {
         if(boardTiles[2][0] != ' ' && boardTiles[2][0] == boardTiles[2][1] && boardTiles[2][0] == boardTiles[2][2]) {setWinner(boardTiles[2][0]); return "Win";}
 
         if(boardTiles[0][0] != ' ' && boardTiles[0][0] == boardTiles[1][0] && boardTiles[0][0] == boardTiles[2][0]) {setWinner(boardTiles[0][0]); return "Win";}
-        if(boardTiles[0][1] != ' ' && boardTiles[0][1] == boardTiles[1][1] && boardTiles[0][1] == boardTiles[2][1]) {setWinner(boardTiles[0][2]); return "Win";}
-        if(boardTiles[0][2] != ' ' && boardTiles[0][2] == boardTiles[1][2] && boardTiles[0][2] == boardTiles[2][2]) {setWinner(boardTiles[0][3]); return "Win";}
+        if(boardTiles[0][1] != ' ' && boardTiles[0][1] == boardTiles[1][1] && boardTiles[0][1] == boardTiles[2][1]) {setWinner(boardTiles[0][1]); return "Win";}
+        if(boardTiles[0][2] != ' ' && boardTiles[0][2] == boardTiles[1][2] && boardTiles[0][2] == boardTiles[2][2]) {setWinner(boardTiles[0][2]); return "Win";}
 
         if(boardTiles[0][0] != ' ' && boardTiles[0][0] == boardTiles[1][1] && boardTiles[0][0] == boardTiles[2][2]) {setWinner(boardTiles[0][0]); return "Win";}
         if(boardTiles[2][0] != ' ' && boardTiles[2][0] == boardTiles[1][1] && boardTiles[2][0] == boardTiles[0][2]) {setWinner(boardTiles[2][0]); return "Win";}
 
-        String tiles = "";
 
-        for(int width = 0;width<2;width++){
-            for(int height = 0;height<2;height++){
-                tiles+=boardTiles[width][height];
+        for(int width = 0;width<3;width++){
+            for(int height = 0;height<3;height++){
+                if(boardTiles[width][height] == ' ') return "Continue";
             }
         }
 
-        if(tiles.contains(" ")){
-            return "Continue";
-        }
-        else{
             return "End";
-        }
     }
 
     public String askForMove(Player player){ return "Enter your move, " + player.getClass().getSimpleName(); }
